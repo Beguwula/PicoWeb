@@ -31,7 +31,7 @@ def load_page(url):
     if response.status_code == 200:
         print(f"Loaded {url}")
         sleep(1)
-        orint(parse(response.text))
+        print(parse(response.text))
     else:
         print(f"Error loading {url}")
 def download(url, filename):
