@@ -1,6 +1,6 @@
 import re
 
-def clean_html(html_text):
+def parse(html_text):
     # Convert <br> to newline
     clean_text = html_text.replace('<br>', '\n')
     # Remove everything inside <>
@@ -10,6 +10,6 @@ def clean_html(html_text):
 # Example usage:
 '''
 html_code = "<!DOCTYPE html><html><head></head><body>Hello<br>World!</body></html>"
-cleaned_text = clean_html(html_code)
-print(cleaned_text)  # Output: "Hello\nWorld!"
+parsed_text = parse_html(html_code)
+print(parsed_text)  # Output: "Hello\nWorld!"
 '''
