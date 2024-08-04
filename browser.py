@@ -4,6 +4,7 @@ from time import sleep
 import machine
 import os
 import urequests
+from htmlparser import parse
 def connect(ssid, password):
     use_pass = input("Use password for connecting [Y/n]? ")
     if use_pass == "Y" or use_pass == "n":
@@ -29,7 +30,8 @@ def connect_pass(ssid, password):
 def load_page(url):
     response = urequests.get(url)
     if response.status_code == 200:
-        print(response.text)
         print(f"Loaded {url}")
+        sleep(1)
+        orint(parse(response.text))
     else:
         print(f"Error loading {url}")
