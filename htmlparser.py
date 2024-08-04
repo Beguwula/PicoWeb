@@ -8,7 +8,8 @@ def clean_html(html_text):
     return clean_text
 
 # Example usage:
+'''
 html_code = "<!DOCTYPE html><html><head></head><body>Hello<br>World!</body></html>"
 cleaned_text = clean_html(html_code)
 print(cleaned_text)  # Output: "Hello\nWorld!"
-
+'''
