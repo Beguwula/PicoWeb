@@ -6,11 +6,10 @@ import os
 import urequests
 from htmlparser import parse
 def connect(ssid, password):
-    use_pass = input("Use password for connecting [Y/n]? ")
-    if use_pass == "Y" or use_pass == "n":
-        connect_pass(ssid, password)
-    elif use_pass == "N" or use_pass == "n":
+    if password is None:
         connect_no_pass(ssid)
+    else:
+        connect_pass(ssid, password)
 def connect_no_pass(ssid):
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
