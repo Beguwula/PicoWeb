@@ -35,3 +35,12 @@ def load_page(url):
         orint(parse(response.text))
     else:
         print(f"Error loading {url}")
+def download(url, filename):
+    path = filename
+    response = urequests.get(url)
+    if response.status_code == 200:
+        with open(path, 'wb') as f:
+            f.write(response.content)
+        print(f"File saved as {path}")
+    else:
+        print(f"Error downloading file from {url}")
