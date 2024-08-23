@@ -4,7 +4,7 @@ from time import sleep
 import machine
 import os
 import urequests
-from htmlparser import parse
+import re
 def connect(ssid, password):
     if password is None:
         connect_no_pass(ssid)
@@ -43,3 +43,9 @@ def download(url, filename):
         print(f"File saved as {path}")
     else:
         print(f"Error downloading file from {url}")
+def parse(html_text):
+    # Convert <br> to newline
+    clean_text = html_text.replace('<br>', '\n')
+    # Remove everything inside <>
+    clean_text = re.sub(r'<.*?>', '', clean_text)
+    return clean_text
